@@ -1,7 +1,7 @@
 use rocket::{response::content::RawHtml, serde::json::Json};
 use serde::{Deserialize, Serialize};
 
-use crate::db::{customers, purchaseOrders};
+use crate::db::{customers, purchase_orders};
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Order {
@@ -22,7 +22,7 @@ pub fn create_order(order: Json<Order>) -> Result<(), String> {
         None => return Err("No book id provided".to_string()),
     };
 
-    purchaseOrders::create_purchase_order(cid, bid);
+    purchase_orders::create_purchase_order(cid, bid);
     Ok(())
 }
 
@@ -37,8 +37,8 @@ pub fn get_shipped(order: Json<Order>) -> Result<Json<Order>, String> {
         None => return Err("No book id provided".into()),
     };
 
-    let oid = purchaseOrders::get_purchase_order_id(cid, bid);
-    let shipped = purchaseOrders::is_po_shipped(oid);
+    let oid = purchase_orders::get_purchase_order_id(cid, bid);
+    let shipped = purchase_orders::is_po_shipped(oid);
     Ok(Json(Order {
         id: None,
         customer_id: None,
@@ -54,7 +54,7 @@ pub fn ship_order(order: Json<Order>) -> Result<(), String> {
         None => return Err("No order id provided".to_string()),
     };
 
-    purchaseOrders::ship_po(oid);
+    purchase_orders::ship_po(oid);
     Ok(())
 }
 
