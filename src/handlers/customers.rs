@@ -28,7 +28,7 @@ pub fn create_customer(customer: Json<Customer>) -> Result<(), String> {
 
 #[put("/updateAddress", data = "<customer>")]
 pub fn update_address(customer: Json<Customer>) -> Result<(), String> {
-    let cid = match customer.id.clone() {
+    let cid = match customer.id {
         Some(i) => i,
         None => return Err("No id provided".to_string()),
     };

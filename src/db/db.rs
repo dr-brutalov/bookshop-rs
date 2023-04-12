@@ -18,5 +18,5 @@ pub fn connect() -> Connection {
         }
     }
     
-    return connection;
+    connection
 }

@@ -13,11 +13,11 @@ pub struct Order {
 
 #[post("/new", data = "<order>")]
 pub fn create_order(order: Json<Order>) -> Result<(), String> {
-    let cid = match order.customer_id.clone() {
+    let cid = match order.customer_id {
         Some(c) => c,
         None => return Err("No customer id provided".to_string()),
     };
-    let bid = match order.book_id.clone() {
+    let bid = match order.book_id {
         Some(b) => b,
         None => return Err("No book id provided".to_string()),
     };
@@ -28,11 +28,11 @@ pub fn create_order(order: Json<Order>) -> Result<(), String> {
 
 #[get("/shipped", format = "json", data = "<order>")]
 pub fn get_shipped(order: Json<Order>) -> Result<Json<Order>, String> {
-    let cid = match order.customer_id.clone() {
+    let cid = match order.customer_id {
         Some(c) => c,
         None => return Err("No customer id provided".into()),
     };
-    let bid = match order.book_id.clone() {
+    let bid = match order.book_id {
         Some(b) => b,
         None => return Err("No book id provided".into()),
     };
@@ -49,7 +49,7 @@ pub fn get_shipped(order: Json<Order>) -> Result<Json<Order>, String> {
 
 #[put("/ship", data = "<order>")]
 pub fn ship_order(order: Json<Order>) -> Result<(), String> {
-    let oid = match order.id.clone() {
+    let oid = match order.id {
         Some(o) => o,
         None => return Err("No order id provided".to_string()),
     };
@@ -60,17 +60,17 @@ pub fn ship_order(order: Json<Order>) -> Result<(), String> {
 
 #[get("/status", format = "json", data = "<order>")]
 pub fn get_status(order: Json<Order>) -> Result<RawHtml<String>, String> {
-    let oid = match order.id.clone() {
+    let oid = match order.id {
         Some(o) => o,
         None => return Err("No order id provided".to_string()),
     };
 
-    let cid = match order.customer_id.clone() {
+    let cid = match order.customer_id {
         Some(c) => c,
         None => return Err("No customer id provided".to_string()),
     };
 
-    let bid = match order.book_id.clone() {
+    let bid = match order.book_id {
         Some(b) => b,
         None => return Err("No book id provided".to_string()),
     };
@@ -97,5 +97,5 @@ pub fn get_status(order: Json<Order>) -> Result<RawHtml<String>, String> {
         &addr.as_str()
     );
 
-    Ok(RawHtml(response_html.clone()))
+    Ok(RawHtml(response_html))
 }

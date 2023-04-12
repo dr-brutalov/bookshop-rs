@@ -20,7 +20,7 @@ pub fn create_book(book: Json<Book>) -> Result<(), String> {
         Some(a) => a,
         None => return Err("No author provided".to_string()),
     };
-    let price = match book.price.clone() {
+    let price = match book.price {
         Some(p) => p,
         None => return Err("No price provided".to_string()),
     };
