@@ -1,0 +1,12 @@
+echo '{"title": "Dune", "author": "Frank Herbert"}' | http GET localhost:8080/books/price
+
+echo '{"title": "The day the rust stood still.", "author": "Me", "price": 9.98}' | http POST localhost:8080/books/new
+
+// SQL Injection Test
+echo '{"title": "Robert'); DROP TABLE Books;--", "author": "Me", "price": 9.98}' | http POST localhost:8080/books/new
+
+echo '{"title": "The day the rust stood still.", "author": "Me"}' | http GET localhost:8080/books/price
+
+echo '{"name": "Me", "shipping_address":"123 Lane" }' | http POST localhost:8080/customers/new
+
+echo '{"name": "Me", "shipping_address":"123 Lane" }' | http GET localhost:8080/customers/balance

@@ -1,4 +1,4 @@
-use super::db::connect;
+use super::database::connect;
 
 pub fn create_purchase_order(cid: i64, bid: i64) -> i64 {
     let db = connect();

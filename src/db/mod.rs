@@ -1,4 +1,4 @@
 pub mod books;
 pub mod customers;
-mod db;
+mod database;
 pub mod purchase_orders;

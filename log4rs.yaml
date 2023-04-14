@@ -1,0 +1,77 @@
+# Initial configuration file for the logging, provided in the log4rs "Quick Start" section (https://crates.io/crates/log4rs)
+appenders:
+  # Info strategy, uses a rolling file for the rotation and retention of log files
+  stdout:
+    kind: console
+    encoder:
+      pattern: "{m}{n}"
+
+  info_ap:
+    kind: file
+    path: "logs/info/info_log.txt"
+    encoder:
+      pattern: "{d(%m-%d-%Y %H:%M:%S)} || {({l}):5.5} || {f}::{L} || {m}{n}"
+    # Retention policy, the `trigger` sets when a current log file is processed and a new log file is created,
+    # while the `roller` determines the rules for which the old log files are retained.
+    # policy:
+    #   trigger:
+    #     kind: size
+    #     limit: 30 mb
+    #   roller:
+    #     kind: fixed_window
+    #     pattern: logs/info/info_log_{}.gz
+    #     count: 5
+    #     base: 1
+
+  warn_ap:
+    kind: file
+    path: "logs/warn/warn_log.txt"
+    encoder:
+      pattern: "{d(%m-%d-%Y %H:%M:%S)} || {({l}):5.5} || {f}::{L} || {m}{n}"
+    # Retention policy, the `trigger` sets when a current log file is processed and a new log file is created,
+    # while the `roller` determines the rules for which the old log files are retained.
+    # policy:
+    #   trigger:
+    #     kind: size
+    #     limit: 30 mb
+    #   roller:
+    #     kind: fixed_window
+    #     pattern: logs/warn/warn_log_{}.gz
+    #     count: 5
+    #     base: 1
+
+  error_ap:
+    kind: file
+    path: "logs/error/error_log.txt"
+    encoder:
+      pattern: "{d(%m-%d-%Y %H:%M:%S)} || {({l}):5.5} || {f}::{L} || {m}{n}"
+    # Retention policy, the `trigger` sets when a current log file is processed and a new log file is created,
+    # while the `roller` determines the rules for which the old log files are retained.
+    # policy:
+    #   trigger:
+    #     kind: size
+    #     limit: 30 mb
+    #   roller:
+    #     kind: fixed_window
+    #     pattern: logs/error/error_log_{}.gz
+    #     count: 5
+    #     base: 1
+# Allows logger to output logs to the console. After testing, this may be removed.
+root:
+  level: debug
+  appenders:
+    - stdout
+
+loggers:
+  info:
+    level: info
+    appenders:
+      - info_ap
+  warn:
+    level: warn
+    appenders:
+      - warn-ap
+  error:
+    level: error
+    appenders:
+      - error-ap

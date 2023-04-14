@@ -1,0 +1,9 @@
+04-14-2023 09:22:27 || INFO  || src/db/books.rs::35 || The price of the book with ID 6 was checked.
+04-14-2023 09:22:29 || INFO  || src/db/books.rs::35 || The price of the book with ID 2 was checked.
+04-14-2023 09:23:07 || INFO  || src/db/books.rs::12 || A new book with Title The day the rust stood still. and Author Me has been added
+04-14-2023 09:36:20 || INFO  || src/db/books.rs::12 || A new book with Title The day the rust stood still. and Author Me has been added
+04-14-2023 10:47:39 || INFO  || src/db/customers.rs::14 || Created user: Me with address: 123 Lane.
+04-14-2023 11:52:06 || INFO  || src/db/customers.rs::14 || Created user: Me with address: 123 Lane.
+04-14-2023 11:52:06 || INFO  || src/db/customers.rs::35 || Created user: Me with address: 123 Lane.
+04-14-2023 13:14:44 || INFO  || src/db/customers.rs::46 || Created user: Me with address: 123 Lane.
+04-14-2023 13:14:44 || INFO  || src/db/customers.rs::122 || Customer 1 balance was checked.
