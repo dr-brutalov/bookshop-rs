@@ -7,3 +7,7 @@
 04-14-2023 11:52:06 || INFO  || src/db/customers.rs::35 || Created user: Me with address: 123 Lane.
 04-14-2023 13:14:44 || INFO  || src/db/customers.rs::46 || Created user: Me with address: 123 Lane.
 04-14-2023 13:14:44 || INFO  || src/db/customers.rs::122 || Customer 1 balance was checked.
+04-15-2023 12:05:20 || INFO  || src/db/database.rs::29 || Database initialized. Not the first logged element? Contact IT!
+04-15-2023 12:05:20 || INFO  || src/db/books.rs::18 || A book with Title The day the rust stood still. and Author Me has been added
+04-15-2023 12:06:20 || INFO  || src/db/books.rs::18 || A book with Title "The day the rust stood still." and Author "Me" has been added
+04-15-2023 12:26:50 || INFO  || src/db/books.rs::72 || The price of the book with id "6" was checked.

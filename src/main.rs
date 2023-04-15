@@ -7,7 +7,8 @@ mod handlers;
 
 #[launch]
 fn rocket() -> _ {
-    log4rs::init_file("log4rs.yaml", Default::default()).unwrap_or_else(|error| println!("Error while loading `log4rs` config: {}", error));
+    log4rs::init_file("log4rs.yaml", Default::default())
+        .unwrap_or_else(|error| println!("Error while loading `log4rs` config: {}", error));
 
     rocket::build()
         .mount("/books", routes![handlers::books::create_book])

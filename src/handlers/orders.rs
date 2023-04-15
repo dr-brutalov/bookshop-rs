@@ -38,7 +38,7 @@ pub fn get_shipped(order: Json<Order>) -> Result<Json<Order>, String> {
     };
 
     let oid = purchase_orders::get_purchase_order_id(cid, bid);
-    let shipped = purchase_orders::is_po_shipped(oid);
+    let shipped = purchase_orders::get_purchase_order_shipping_status(oid);
     Ok(Json(Order {
         id: None,
         customer_id: None,
@@ -54,7 +54,7 @@ pub fn ship_order(order: Json<Order>) -> Result<(), String> {
         None => return Err("No order id provided".to_string()),
     };
 
-    purchase_orders::ship_po(oid);
+    purchase_orders::update_purchase_order_shipping_status_to_shipped(oid);
     Ok(())
 }
 
