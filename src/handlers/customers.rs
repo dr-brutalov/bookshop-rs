@@ -12,7 +12,7 @@ pub struct Customer {
 }
 
 #[post("/new", data = "<customer>")]
-pub fn create_customer(customer: Json<Customer>) -> Result<(), String> {
+pub fn create_new_customer(customer: Json<Customer>) -> Result<(), String> {
     let name = match customer.name.clone() {
         Some(n) => n,
         None => return Err("No name provided".to_string()),
@@ -27,7 +27,7 @@ pub fn create_customer(customer: Json<Customer>) -> Result<(), String> {
 }
 
 #[put("/updateAddress", data = "<customer>")]
-pub fn update_address(customer: Json<Customer>) -> Result<(), String> {
+pub fn update_customer_address(customer: Json<Customer>) -> Result<(), String> {
     let cid = match customer.id {
         Some(i) => i,
         None => return Err("No id provided".to_string()),
@@ -42,22 +42,24 @@ pub fn update_address(customer: Json<Customer>) -> Result<(), String> {
 }
 
 #[get("/balance", format = "json", data = "<customer>")]
-pub fn get_balance(customer: Json<Customer>) -> Result<Json<Customer>, String> {
+pub fn get_customer_balance(customer: Json<Customer>) -> Result<Json<Customer>, String> {
     let name = match customer.name.clone() {
         Some(n) => n,
         None => return Err("No name provided".into()),
     };
+    let tmp_name = name.clone();
     let address = match customer.shipping_address.clone() {
         Some(a) => a,
         None => return Err("No address provided".into()),
     };
+    let tmp_address = address.clone();
 
     let cid = customers::get_customer_id(name, address);
     let balance = customers::customer_balance(cid);
     Ok(Json(Customer {
-        id: None,
-        name: None,
-        shipping_address: None,
+        id: Some(cid),
+        name: Some(tmp_name),
+        shipping_address: Some(tmp_address),
         account_balance: Some(balance),
     }))
 }
