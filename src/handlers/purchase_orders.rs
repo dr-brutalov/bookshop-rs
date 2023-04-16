@@ -12,7 +12,7 @@ pub struct Order {
     shipped: Option<i64>,
 }
 
-#[post("/new", data = "<order>")]
+#[post("/create_new_order", data = "<order>")]
 pub fn create_new_order(order: Json<Order>) -> Result<(), String> {
     let cid = match order.customer_id {
         Some(c) => c,
@@ -27,7 +27,7 @@ pub fn create_new_order(order: Json<Order>) -> Result<(), String> {
     Ok(())
 }
 
-#[get("/shipped", format = "json", data = "<order>")]
+#[get("/get_order_shipping_status", format = "json", data = "<order>")]
 pub fn get_order_shipping_status(order: Json<Order>) -> Result<Json<Order>, String> {
     let cid = match order.customer_id {
         Some(c) => c,
@@ -51,7 +51,7 @@ pub fn get_order_shipping_status(order: Json<Order>) -> Result<Json<Order>, Stri
     }))
 }
 
-#[put("/ship", data = "<order>")]
+#[put("/ship_order", data = "<order>")]
 pub fn ship_order(order: Json<Order>) -> Result<(), String> {
     let oid = match order.id {
         Some(o) => o,

@@ -4,6 +4,7 @@ extern crate serde;
 
 mod db;
 mod handlers;
+mod input_validation;
 
 #[launch]
 fn rocket() -> _ {
@@ -25,11 +26,14 @@ fn rocket() -> _ {
             "/customers",
             routes![handlers::customers::update_customer_address],
         )
-        .mount("/orders", routes![handlers::orders::create_new_order])
         .mount(
             "/orders",
-            routes![handlers::orders::get_order_shipping_status],
+            routes![handlers::purchase_orders::create_new_order],
         )
-        .mount("/orders", routes![handlers::orders::ship_order])
+        .mount(
+            "/orders",
+            routes![handlers::purchase_orders::get_order_shipping_status],
+        )
+        .mount("/orders", routes![handlers::purchase_orders::ship_order])
     // .mount("/orders", routes![handlers::orders::get_order_status])
 }
