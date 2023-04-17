@@ -22,7 +22,7 @@ pub fn create_book(title: String, author: String, price: f64) {
         panic!("Failed, yo {}", error)
     });
 
-    info!(target: "info", "A book with Title \"{}\" and Author \"{}\" has been added", title, author)
+    info!(target: "info", "A book with Title \"{}\" and Author \"{}\" has been added.", title, author)
 }
 
 pub fn get_book_id(title: String, author: String) -> i64 {
@@ -56,7 +56,7 @@ pub fn get_book_id(title: String, author: String) -> i64 {
 
     info!(target: "info", "Book with title \"{}\" and author \"{}\" has id {}.", title, author, id);
 
-    return id;
+    id
 }
 
 pub fn get_book_price(bid: i64) -> f64 {
@@ -91,5 +91,5 @@ pub fn get_book_price(bid: i64) -> f64 {
 
     info!(target:"info", "The price of the book with id \"{}\" was checked.", bid);
 
-    return id;
+    id
 }

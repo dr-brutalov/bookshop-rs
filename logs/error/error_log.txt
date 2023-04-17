@@ -1,0 +1,9 @@
+04-16-2023 17:28:29 || ERROR || src/db/customers.rs::45 || Failed to handle next customer in database.
+04-16-2023 17:31:38 || ERROR || src/db/customers.rs::45 || Failed to handle next customer in database (get_customer_id).
+04-16-2023 17:36:58 || ERROR || src/db/customers.rs::45 || Failed to handle next customer in database (get_customer_id).
+04-16-2023 17:43:27 || ERROR || src/db/customers.rs::45 || Failed to handle next customer in database (get_customer_id).
+04-16-2023 17:55:15 || ERROR || src/db/customers.rs::29 || Error while preparing customer id: no such column: shippingAddress in SELECT id FROM customers WHERE name = :name AND shippingAddress = :address; at offset 48
+04-16-2023 17:57:53 || ERROR || src/db/customers.rs::113 || Error while preparing customer balance for cid "1": no such column: accountBalance in SELECT accountBalance FROM customers WHERE id = :cid; at offset 7
+04-16-2023 17:59:06 || ERROR || src/db/customers.rs::10 || Error while preparing to create customer id: table customers has no column named accountBalance
+04-16-2023 20:03:20 || ERROR || src/input_validation/general_iv.rs::45 || Invalid price of "111119.98" in create_new_book method.
+04-16-2023 20:03:35 || ERROR || src/input_validation/general_iv.rs::45 || Invalid price of "19.981" in create_new_book method.

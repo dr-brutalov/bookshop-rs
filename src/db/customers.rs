@@ -5,7 +5,7 @@ use super::database::connect;
 pub fn create_customer(name: String, address: String) -> i64 {
     let db = connect();
 
-    let query = "INSERT INTO customers (name, shippingAddress, accountBalance) VALUES (:name, :ShippingAddress, 5.0);";
+    let query = "INSERT INTO customers (name, shipping_address, account_balance) VALUES (:name, :ShippingAddress, 5.0);";
     let mut stmt = db.prepare(query).unwrap_or_else(|error| {
         error!(target: "error", "Error while preparing to create customer id: {}", error);
         panic!("Error while preparing to create customer id: {}", error);
@@ -24,7 +24,7 @@ pub fn create_customer(name: String, address: String) -> i64 {
 pub fn get_customer_id(name: String, address: String) -> i64 {
     let db = connect();
 
-    let query = "SELECT id FROM customers WHERE name = :name AND shippingAddress = :address;";
+    let query = "SELECT id FROM customers WHERE name = :name AND shipping_address = :address;";
     let mut stmt = db.prepare(query).unwrap_or_else(|error| {
         error!(target: "error", "Error while preparing customer id: {}", error);
         panic!("Error while preparing customer id: {}", error);
@@ -42,8 +42,8 @@ pub fn get_customer_id(name: String, address: String) -> i64 {
     let id = rows
         .next()
         .unwrap_or_else(|| {
-            error!(target: "error", "Failed to handle next customer in database.");
-            panic!("Failed to handle next customer in database.");
+            error!(target: "error", "Failed to handle next customer in database (get_customer_id).");
+            panic!("Failed to handle next customer in database (get_customer_id).");
         })
         .unwrap_or_else(|error| {
             error!(target: "error", "Failed to process customer rows: {}", error);
@@ -52,13 +52,13 @@ pub fn get_customer_id(name: String, address: String) -> i64 {
 
     info!(target: "info", "Customer with name \"{}\" and address \"{}\" has id {}.", name, address, id);
 
-    return id;
+    id
 }
 
 pub fn get_customer_address(cid: i64) -> String {
     let db = connect();
 
-    let query = "SELECT shippingAddress FROM customers WHERE id = :cid;";
+    let query = "SELECT shipping_address FROM customers WHERE id = :cid;";
     let mut stmt = db.prepare(query).unwrap_or_else(|error| {
         error!(target: "error", "Error while preparing customer id: {}", error);
         panic!("Error while preparing customer id: {}", error);
@@ -74,8 +74,8 @@ pub fn get_customer_address(cid: i64) -> String {
     let address = rows
         .next()
         .unwrap_or_else(|| {
-            error!(target: "error", "Failed to handle next customer in database");
-            panic!("Failed to handle next customer in database");
+            error!(target: "error", "Failed to handle next customer in database (get_customer_id).");
+            panic!("Failed to handle next customer in database (get_customer_id).");
         })
         .unwrap_or_else(|error| {
             error!(target: "error", "Failed to process customer rows: {}", error);
@@ -84,13 +84,13 @@ pub fn get_customer_address(cid: i64) -> String {
 
     info!(target: "info", "Created user with cid: \"{}\".", cid);
 
-    return address;
+    address
 }
 
 pub fn update_customer_address(cid: i64, address: String) {
     let db = connect();
 
-    let query = "UPDATE customers SET shippingAddress = :address WHERE id = :cid;";
+    let query = "UPDATE customers SET shipping_address = :address WHERE id = :cid;";
     let mut stmt = db.prepare(query).unwrap_or_else(|error| {
         error!(target: "error", "Error while preparing to updating customer id {} address to {}: {}", cid, address, error);
         panic!("Error while preparing to updating customer id {} address to {}: {}", cid, address, error);
@@ -106,7 +106,7 @@ pub fn update_customer_address(cid: i64, address: String) {
 pub fn customer_balance(cid: i64) -> f64 {
     let db = connect();
 
-    let query = "SELECT accountBalance FROM customers WHERE id = :cid;";
+    let query = "SELECT account_balance FROM customers WHERE id = :cid;";
     let mut stmt = db
         .prepare(query)
         .unwrap_or_else(|error| {
@@ -123,8 +123,8 @@ pub fn customer_balance(cid: i64) -> f64 {
     let balance = rows
         .next()
         .unwrap_or_else(|| {
-            error!(target: "error", "Failed to handle next customer in database");
-            panic!("Failed to handle next customer in database")
+            error!(target: "error", "Failed to handle next customer in database (customer_balance).");
+            panic!("Failed to handle next customer in database (customer_balance).")
         })
         .unwrap_or_else(|error| {
             error!(target: "error", "Failed to process customer rows: {}", error);
@@ -133,5 +133,5 @@ pub fn customer_balance(cid: i64) -> f64 {
 
     info!(target: "info", "Customer \"{}\" has a balance of \"{}\".", cid, balance);
 
-    return balance;
+    balance
 }

@@ -26,8 +26,11 @@ pub fn create_new_customer(customer: Json<Customer>) -> Result<(), String> {
     name = standardize_whitespace(name.clone());
     address = standardize_whitespace(address.clone());
 
-    match check_for_alphanumeric_input(name.clone(), "customer name".to_string(), "new_customer".to_string())
-    {
+    match check_for_alphanumeric_input(
+        name.clone(),
+        "customer name".to_string(),
+        "new_customer".to_string(),
+    ) {
         Ok(()) => 0,
         Err(user_error_message) => return Err(user_error_message),
     };

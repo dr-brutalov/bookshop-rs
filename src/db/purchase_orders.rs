@@ -57,7 +57,7 @@ pub fn get_purchase_order_id(cid: i64, bid: i64) -> i64 {
 
     info!(target: "info", "Successfully found PO id \"{}\".", id);
 
-    return id;
+    id
 }
 
 pub fn get_purchase_order_shipping_status(poid: i64) -> i64 {

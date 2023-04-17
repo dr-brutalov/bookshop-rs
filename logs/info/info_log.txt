@@ -1,13 +1,33 @@
-04-14-2023 09:22:27 || INFO  || src/db/books.rs::35 || The price of the book with ID 6 was checked.
-04-14-2023 09:22:29 || INFO  || src/db/books.rs::35 || The price of the book with ID 2 was checked.
-04-14-2023 09:23:07 || INFO  || src/db/books.rs::12 || A new book with Title The day the rust stood still. and Author Me has been added
-04-14-2023 09:36:20 || INFO  || src/db/books.rs::12 || A new book with Title The day the rust stood still. and Author Me has been added
-04-14-2023 10:47:39 || INFO  || src/db/customers.rs::14 || Created user: Me with address: 123 Lane.
-04-14-2023 11:52:06 || INFO  || src/db/customers.rs::14 || Created user: Me with address: 123 Lane.
-04-14-2023 11:52:06 || INFO  || src/db/customers.rs::35 || Created user: Me with address: 123 Lane.
-04-14-2023 13:14:44 || INFO  || src/db/customers.rs::46 || Created user: Me with address: 123 Lane.
-04-14-2023 13:14:44 || INFO  || src/db/customers.rs::122 || Customer 1 balance was checked.
-04-15-2023 12:05:20 || INFO  || src/db/database.rs::29 || Database initialized. Not the first logged element? Contact IT!
-04-15-2023 12:05:20 || INFO  || src/db/books.rs::18 || A book with Title The day the rust stood still. and Author Me has been added
-04-15-2023 12:06:20 || INFO  || src/db/books.rs::18 || A book with Title "The day the rust stood still." and Author "Me" has been added
-04-15-2023 12:26:50 || INFO  || src/db/books.rs::72 || The price of the book with id "6" was checked.
+04-16-2023 19:51:56 || INFO  || src/db/database.rs::35 || Database initialized. Not the first logged element? Contact IT!
+04-16-2023 19:51:56 || INFO  || src/db/books.rs::57 || Book with title "Dune" and author "Frank Herbert" has id 2.
+04-16-2023 19:51:56 || INFO  || src/db/books.rs::92 || The price of the book with id "2" was checked.
+04-16-2023 19:52:04 || INFO  || src/db/books.rs::25 || A book with Title "The Day the Rust Stood Still" and Author "Brutalov" has been added.
+04-16-2023 19:52:10 || INFO  || src/db/customers.rs::19 || Created user: "Brutalov Yo" with address: "123 Lane".
+04-16-2023 19:52:10 || INFO  || src/db/customers.rs::53 || Customer with name "Brutalov Yo" and address "123 Lane" has id 1.
+04-16-2023 19:52:17 || INFO  || src/db/customers.rs::103 || Customer "1" updated their address to: "1234 Lane".
+04-16-2023 19:52:27 || INFO  || src/db/customers.rs::85 || Created user with cid: "1".
+04-16-2023 19:52:27 || INFO  || src/db/purchase_orders.rs::58 || Successfully found PO id "1".
+04-16-2023 19:52:27 || INFO  || src/db/purchase_orders.rs::88 || Shipping status of PO with id "1" was checked.
+04-16-2023 19:52:36 || INFO  || src/db/customers.rs::85 || Created user with cid: "1".
+04-16-2023 19:52:36 || INFO  || src/db/purchase_orders.rs::58 || Successfully found PO id "2".
+04-16-2023 19:52:36 || INFO  || src/db/purchase_orders.rs::88 || Shipping status of PO with id "2" was checked.
+04-16-2023 19:52:43 || INFO  || src/db/purchase_orders.rs::27 || Created PO with cid "1" and bid: "1".
+04-16-2023 19:52:43 || INFO  || src/db/purchase_orders.rs::58 || Successfully found PO id "3".
+04-16-2023 19:52:49 || INFO  || src/db/customers.rs::85 || Created user with cid: "1".
+04-16-2023 19:52:49 || INFO  || src/db/purchase_orders.rs::58 || Successfully found PO id "3".
+04-16-2023 19:52:49 || INFO  || src/db/purchase_orders.rs::88 || Shipping status of PO with id "3" was checked.
+04-16-2023 19:52:58 || INFO  || src/db/purchase_orders.rs::111 || PO with id "3" has shipped!
+04-16-2023 19:53:05 || INFO  || src/db/customers.rs::85 || Created user with cid: "1".
+04-16-2023 19:53:05 || INFO  || src/db/purchase_orders.rs::58 || Successfully found PO id "3".
+04-16-2023 19:53:05 || INFO  || src/db/purchase_orders.rs::88 || Shipping status of PO with id "3" was checked.
+04-16-2023 19:54:12 || INFO  || src/db/books.rs::57 || Book with title "Dune" and author "Frank Herbert" has id 2.
+04-16-2023 19:54:12 || INFO  || src/db/books.rs::92 || The price of the book with id "2" was checked.
+04-16-2023 19:58:29 || INFO  || src/db/books.rs::25 || A book with Title "The Day the Rust Stood Still" and Author "Brutalov" has been added.
+04-16-2023 19:59:17 || INFO  || src/db/books.rs::57 || Book with title "The Day the Rust Stood Still" and author "Brutalov" has id 6.
+04-16-2023 19:59:17 || INFO  || src/db/books.rs::92 || The price of the book with id "6" was checked.
+04-16-2023 20:02:19 || INFO  || src/db/books.rs::25 || A book with Title "The Day the Rust Stood Still" and Author "Brutalov" has been added.
+04-16-2023 20:02:21 || INFO  || src/db/books.rs::57 || Book with title "The Day the Rust Stood Still" and author "Brutalov" has id 6.
+04-16-2023 20:02:21 || INFO  || src/db/books.rs::92 || The price of the book with id "6" was checked.
+04-16-2023 20:03:57 || INFO  || src/db/customers.rs::19 || Created user: "Brutalov Yo" with address: "123 Lane".
+04-16-2023 20:03:57 || INFO  || src/db/customers.rs::53 || Customer with name "Brutalov Yo" and address "123 Lane" has id 2.
+04-16-2023 20:08:00 || INFO  || src/db/books.rs::25 || A book with Title "The Day the Rust Stood Still Two Electric Boogaloo" and Author "Brutalov" has been added.

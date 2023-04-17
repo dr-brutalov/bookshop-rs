@@ -28,25 +28,28 @@ pub fn standardize_price(input_price: f64, input_method: String) -> Result<(), S
     if input_price <= 0.00 {
         error!(target: "error", "An invalid price of 0.00 or less was submitted in the {} method.", input_method);
         let user_error_message =
-            format!("Please provide a value greater than \"0.00\" for the price.");
+            "Please provide a value greater than \"0.00\" for the price.".to_string();
         return Err(user_error_message);
     }
 
-    match input_price.to_string().contains(".") {
+    match input_price.to_string().contains('.') {
         true => (),
         false => input_price.to_string().push('.'),
     };
 
-    let num_format_regex = Regex::new(r"^\d{1,5}\.\d{0,2}$").unwrap();
+    let num_format_regex = Regex::new(r"^\d{1,5}\.\d{0,2}$").unwrap_or_else(|error| {
+        error!(target: "error", "Regex error: {}", error);
+        panic!("Regex error: {}", error);
+    });
 
     let valid_price = num_format_regex.is_match(&input_price.to_string());
 
     if !valid_price {
         error!(target: "error", "Invalid price of \"{}\" in {} method.", input_price, input_method);
         let user_error_message = "Please format your price as \"12345.67\". \n\t Valid prices must be between 0.01 and 99999.99".to_string();
-        return Err(user_error_message);
+        Err(user_error_message)
     } else {
-        return Ok(());
+        Ok(())
     }
 }
 
@@ -75,10 +78,10 @@ pub fn check_for_alphanumeric_input(
             "Please only provide alphanumeric characters, \",\", and \".\" as input for {}.",
             input_field
         );
-        warn!(target: "warn", "Invalid input in \"{}\": {}", input_field, input_string.clone());
-        return Err(user_error_message);
+        warn!(target: "warn", "Invalid input in \"{}\": {}", input_field, input_string);
+        Err(user_error_message)
     } else {
-        return Ok(());
+        Ok(())
     }
 }
 
@@ -88,7 +91,7 @@ fn string_is_empty(input_string: String) -> bool {
         is_empty = true;
         warn!(target: "warn", "An input string was found to be empty.")
     }
-    return is_empty;
+    is_empty
 }
 
 fn string_is_all_spaces(input_string: String) -> bool {
@@ -97,5 +100,5 @@ fn string_is_all_spaces(input_string: String) -> bool {
         is_empty = true;
         warn!(target: "warn", "An input string was found to be all spaces.")
     }
-    return is_empty;
+    is_empty
 }

@@ -35,5 +35,4 @@ fn rocket() -> _ {
             routes![handlers::purchase_orders::get_order_shipping_status],
         )
         .mount("/orders", routes![handlers::purchase_orders::ship_order])
-    // .mount("/orders", routes![handlers::orders::get_order_status])
 }

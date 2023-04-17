@@ -1,0 +1,14 @@
+04-16-2023 19:54:29 || WARN  || src/input_validation/general_iv.rs::98 || An input string was found to be all spaces.
+04-16-2023 19:54:29 || WARN  || src/input_validation/general_iv.rs::64 || Empty or all space input given for field "book author" in " create_new_book" functionality.
+04-16-2023 19:54:42 || WARN  || src/input_validation/general_iv.rs::98 || An input string was found to be all spaces.
+04-16-2023 19:54:42 || WARN  || src/input_validation/general_iv.rs::64 || Empty or all space input given for field "book author" in " create_new_book" functionality.
+04-16-2023 19:57:00 || WARN  || src/input_validation/general_iv.rs::78 || Invalid input in "book author": <script>
+04-16-2023 19:58:05 || WARN  || src/input_validation/general_iv.rs::98 || An input string was found to be all spaces.
+04-16-2023 19:58:05 || WARN  || src/input_validation/general_iv.rs::64 || Empty or all space input given for field "book title" in " create_new_book" functionality.
+04-16-2023 19:58:14 || WARN  || src/input_validation/general_iv.rs::98 || An input string was found to be all spaces.
+04-16-2023 19:58:14 || WARN  || src/input_validation/general_iv.rs::64 || Empty or all space input given for field "book title" in " create_new_book" functionality.
+04-16-2023 19:58:21 || WARN  || src/input_validation/general_iv.rs::78 || Invalid input in "book title": <script>
+04-16-2023 20:02:55 || WARN  || src/input_validation/general_iv.rs::78 || Invalid input in "book title": The Day the Rust Stood Still Two: Electric Boogaloo
+04-16-2023 20:06:07 || WARN  || src/input_validation/general_iv.rs::78 || Invalid input in "customer address": Robert; DROP TABLE Students;--
+04-16-2023 20:06:14 || WARN  || src/input_validation/general_iv.rs::98 || An input string was found to be all spaces.
+04-16-2023 20:06:14 || WARN  || src/input_validation/general_iv.rs::64 || Empty or all space input given for field "customer address" in " update_customer_address" functionality.
